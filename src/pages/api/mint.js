@@ -2,7 +2,7 @@ import { Pool } from 'pg';
 
 let ssl;
 if (process.env.NODE_ENV === 'dev') {
-  ssl = {
+  ssl = { // TODO = this does not fully work yet. need to see how else we can get this to either insert from local or not at all.
     rejectUnauthorized: false // Change this to `true` if you have a valid SSL certificate in production
   };
 }
