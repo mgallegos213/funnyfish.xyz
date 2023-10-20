@@ -24,7 +24,7 @@ export default async (req, res) => {
   try {
     const result = await pool.query(
       'INSERT INTO minted_fish(hue, hat, background, type, drand_round, drand_hash, drand_randomness) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING id',
-      [hue, hat, background, type, drandData.round, drandData.previous_hash, drandData.randomness]
+      [hue, hat, background, type, drandData.round, drandData.signature, drandData.randomness]
     );
 
     const newFishId = result.rows[0].id;

@@ -28,6 +28,23 @@ export default function Mint() {
         const hat = (Math.floor(randomNumber / 20) % 10);
         const background = (Math.floor(randomNumber / 200) % 5);
         const type = (Math.floor(randomNumber / 1000) % 5);
+
+        // If drand round is the same as the current state, return early and do nothing
+        if (qualities.drand_round === json.round) {
+            console.log('Drand round is the same as last time. No insertion will occur.');
+            return;
+        }
+
+        // Update the qualities state
+        setQualities({
+            hue,
+            hat,
+            background,
+            type,
+            drand_round: json.round,
+            drand_hash: json.previous_hash,
+            drand_randomness: json.randomness,
+        });
         
         // Send data to our backend endpoint
         const response = await fetch('/api/mint', {
