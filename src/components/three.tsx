@@ -29,7 +29,7 @@ const Aquarium = () => {
 
         // ... Fish and Shark sprites setup code goes here ...
         // Fish sprite
-        const fishTexture = new THREE.TextureLoader().load('/guppy1.png');
+        const fishTexture = new THREE.TextureLoader().load('/0guppy.png');
         fishTexture.center.set(0.5, 0.5);
         fishTexture.repeat.set(fishDirection, 1);
         const fishMaterial = new THREE.SpriteMaterial({ map: fishTexture });
@@ -39,7 +39,7 @@ const Aquarium = () => {
         scene.add(fish);
 
         // Shark sprite
-        const sharkTexture = new THREE.TextureLoader().load('/shark1.png');
+        const sharkTexture = new THREE.TextureLoader().load('/1shark.png');
         sharkTexture.center.set(0.5, 0.5);
         sharkTexture.repeat.set(-1, 1);
         const sharkMaterial = new THREE.SpriteMaterial({ map: sharkTexture });
